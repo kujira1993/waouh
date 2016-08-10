@@ -105,15 +105,20 @@ table{border-collapse:collapse;border-spacing:0;}
 .contents .tar{text-align:right!important}
 .contents .fwb{font-weight:bold!important}
 .contents .fwn{font-weight:normal!important}
+
 .contents .wsn{white-space:nowrap!important}
+
 .contents .vam{vertical-align:middle!important}
 .contents .vat{vertical-align:top!important}
 .contents .vab{vertical-align:bottom!important}
+
 .contents .dpn{display:none!important}
 .contents .dpb{display:block!important}
 .contents .dpi{display:inline!important}
 .contents .dpib{display:inline-block!important}
+
 .contents .psr{position:relative!important}
+
 .contents .bdn{border:none!important}
 .contents .bdtn{border-top:none!important}
 .contents .bdbn{border-bottom:none!important}
@@ -145,6 +150,30 @@ body {
   line-height: 1.5;
 }
 
+/*ページローディングの実装*/
+#loader-bg {
+  background: #f9f9f9;
+  display: none;
+  height: 100%;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 10000;
+}
+#loader {
+  box-sizing: border-box;
+  display: none;
+  font-size: 17px;
+  font-weight: bold;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 /*スマホ・タブレットのスタイル*/
 @media screen and (max-width:768px) {
   /* ----------------------------------------------------------------
@@ -156,6 +185,9 @@ body {
   body {
     font-size: 12px;
     word-wrap: break-all;
+  }
+  img {
+    vertical-align: top;
   }
 
   /**
@@ -171,7 +203,6 @@ body {
   * .header
   */
   .header {
-    height: 59px;
     position: fixed;
     width: 100%;
     z-index: 9999;
@@ -180,6 +211,7 @@ body {
     background: rgba(255, 255, 255, .8);
     border-bottom: 2px solid #27709b;
     margin: 0 auto;
+    min-height: 56px;
     padding-top: 5px;
     position: relative;
     width: 100%;
@@ -239,9 +271,10 @@ body {
     border: 1px solid #222;
     display: inline-block;
     height: 30px;
+    margin-top: -15px;
     position: absolute;
     right: 10px;
-    top: 14px;
+    top: 50%;
     width: 30px;
   }
   #trg-btn-icon {
@@ -361,22 +394,27 @@ body {
   * .main_kv_wrap
   */
   .top_kv_wrap {
-    padding: 59px 0 10px;
+    padding-bottom: 10px;
+    position: relative;
+  }
+  .top_kv_txt {
+    background: rgba(0, 0, 0, 0.8);
+    bottom: 20px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 14px;
+    left: 50%;
+    margin-left: -150px;
+    padding: 10px;
+    position: absolute;
+    width: 300px;
   }
   .main_kv_item {
-    height: 200px;
-    overflow: hidden;
-    position: relative;
     width: 100%;
   }
   .main_kv_item img {
     height: auto;
-    left: 50%;
-    position: absolute;
-    top: 50%;
     width: 100%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
   }
 
   /**
@@ -432,7 +470,7 @@ body {
   */
   .sub_bnr_wrap li {
     margin: 0 auto 10px;
-    width: 300px;
+    width: 100%;
   }
   .sub_bnr_wrap li a img {
     height: auto;
@@ -626,7 +664,7 @@ body {
     width: 100%;
   }
   .header_inr {
-    border-bottom: 2px solid #dedede;
+    border-bottom: 2px solid #27709b;
     margin: 0 auto;
     padding: 10px 0;
     width: 960px;
@@ -635,7 +673,7 @@ body {
     display: block;
     margin: 0 auto;
     text-align: center;
-    width: 300px;
+    width: 200px;
   }
   .header_inr_logo {
     color: #222;
@@ -672,7 +710,7 @@ body {
     transition-duration: .7s;
   }
   .header_gnav li .current, .header_gnav li a:hover {
-    background: #222;
+    background: #27709b;
     color: #fff;
     transition-duration: .7s;
   }
@@ -796,10 +834,25 @@ body {
   * .main_kv_wrap
   */
   .top_kv_wrap {
-    background: #9f9f9f;
-    height: 300px;
     margin: 0 auto;
+    position: relative;
     width: 960px;
+  }
+  .top_kv_txt {
+    background: rgba(0, 0, 0, 0.8);
+    bottom: 20px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 16px;
+    left: 50%;
+    margin-left: -200px;
+    padding: 10px;
+    position: absolute;
+    width: 400px;
+  }
+  .main_kv_item {
+    background: #9f9f9f;
+    text-align: center;
   }
 
   /**
@@ -875,6 +928,7 @@ body {
     border-top: 1px solid #dedede;
     box-sizing: border-box;
     display: table;
+    table-layout: fixed;
     width: 100%;
   }
   .tab_box_header li {
@@ -888,7 +942,7 @@ body {
     transition-duration: .7s;
   }
   .tab_box_header li.current, .tab_box_header li:hover {
-    background: #222;
+    background: #27709b;
     color: #fff;
     transition-duration: .7s;
   }
