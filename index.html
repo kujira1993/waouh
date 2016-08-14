@@ -11,7 +11,7 @@
 	<!-- START ローディング用要素 -->
 	<div id="loader-bg">
 		<div id="loader">
-			waouh
+			<img src="images/waouh-logo-white.svg" alt="" width="200" height="auto">
 		</div>
 	</div>
 	<!-- END ローディング用要素 -->
@@ -255,7 +255,6 @@
 			var h_window = $(window).height(); //ウィンドウの高さを取得
 
 			// //ローディング画面の処理
-			$('#wrap').css('display','none');
 			$('#loader-bg').height(h_window);
 			$('#loader-bg ,#loader').css('display','block');
 			function stopload(){

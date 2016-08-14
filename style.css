@@ -151,8 +151,11 @@ body {
 }
 
 /*ページローディングの実装*/
+#wrap {
+  display: none;
+}
 #loader-bg {
-  background: #f9f9f9;
+  background: #27709b;
   display: none;
   height: 100%;
   left: 0px;
@@ -744,7 +747,7 @@ body {
     box-sizing: border-box;
     float: left;
     height: 180px;
-    padding: 10px;
+    padding: 30px 10px 10px;
     width: 180px;
   }
   .footer_logo img {
@@ -849,6 +852,10 @@ body {
     padding: 10px;
     position: absolute;
     width: 400px;
+  }
+  .main_kv_inr {
+    height: 270px;
+    width: 100%;
   }
   .main_kv_item {
     background: #9f9f9f;
